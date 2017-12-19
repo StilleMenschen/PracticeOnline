@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/result_bg"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48.0dp"
+        android:background="@drawable/radio_toptitle_shape" >
+
+        <ImageButton
+            android:id="@+id/help_back"
+            android:layout_width="48.0dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/help_back_bg"
+            android:contentDescription="@string/hello_world"
+            android:scaleType="centerInside"
+            android:src="@drawable/help_topback" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/help_back"
+            android:gravity="center|start"
+            android:text="@string/back"
+            android:textColor="@color/whiles"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/help"
+            android:textColor="#fff"
+            android:textSize="18sp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/radio_shape"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:padding="20dp" >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/help_content"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+</LinearLayout>
