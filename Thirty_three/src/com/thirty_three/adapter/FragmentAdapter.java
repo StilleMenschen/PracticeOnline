@@ -9,8 +9,6 @@ import android.support.v4.app.FragmentPagerAdapter;
 
 /**
  * fragmentPagerAdapterÊÊÅäÆ÷
- * 
- *
  */
 public class FragmentAdapter extends FragmentPagerAdapter {
 	private static final int TAB_ANDROID = 0;
@@ -18,7 +16,6 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
 	public FragmentAdapter(FragmentManager fm) {
 		super(fm);
-
 	}
 
 	public final static int TAB_COUNT = 2;

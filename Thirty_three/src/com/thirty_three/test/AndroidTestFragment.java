@@ -18,8 +18,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 /**
  * android ÌâÄ¿
- * 
- *
  */
 public class AndroidTestFragment extends Fragment implements OnClickListener {
 	private View view;
