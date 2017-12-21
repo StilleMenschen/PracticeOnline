@@ -30,6 +30,7 @@ public class AboutActivity extends Activity {
 		});
 	}
 
+	// °´¼ü¼àÌý
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
