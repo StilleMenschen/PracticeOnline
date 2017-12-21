@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 
 /**
  * 帮助页
- *
  */
 public class HelpActivity extends Activity {
 	private ImageButton help;
@@ -25,16 +24,16 @@ public class HelpActivity extends Activity {
 
 			@Override
 			public void onClick(View v) {
-				HelpActivity.this.finish();
+				finish();
 			}
 		});
 	}
 
-	// 返回键
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		// 判断是否为返回键被按下
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			HelpActivity.this.finish();
+			finish();
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);

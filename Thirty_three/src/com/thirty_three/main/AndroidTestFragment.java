@@ -2,9 +2,9 @@ package com.thirty_three.main;
 
 import com.thirty_three.Util.SendResult;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -20,9 +20,9 @@ import android.widget.RadioGroup;
  */
 public class AndroidTestFragment extends Fragment implements OnClickListener {
 	// 父布局
-	private View parent;
+	private View parentView;
 	// 提交按钮
-	private Button submit;
+	private Button submit_android;
 	// 单选按钮组
 	private RadioGroup android_rg1, android_rg2, android_rg3;
 	// 复选框
@@ -35,29 +35,29 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-		parent = inflater.inflate(R.layout.androidtest, container, false);
+		parentView = inflater.inflate(R.layout.androidtest, container, false);
 		findViewId();
 		listener();
 
-		return parent;
+		return parentView;
 	}
 
 	private void findViewId() {
 		// 单选按钮组
-		android_rg1 = (RadioGroup) parent.findViewById(R.id.android_rg1);
-		android_rg2 = (RadioGroup) parent.findViewById(R.id.android_rg2);
-		android_rg3 = (RadioGroup) parent.findViewById(R.id.android_rg3);
+		android_rg1 = (RadioGroup) parentView.findViewById(R.id.android_rg1);
+		android_rg2 = (RadioGroup) parentView.findViewById(R.id.android_rg2);
+		android_rg3 = (RadioGroup) parentView.findViewById(R.id.android_rg3);
 		// 复选框
-		cb4_a = (CheckBox) parent.findViewById(R.id.androidtest_4_a);
-		cb4_b = (CheckBox) parent.findViewById(R.id.androidtest_4_b);
-		cb4_c = (CheckBox) parent.findViewById(R.id.androidtest_4_c);
-		cb4_d = (CheckBox) parent.findViewById(R.id.androidtest_4_d);
-		cb5_a = (CheckBox) parent.findViewById(R.id.androidtest_5_a);
-		cb5_b = (CheckBox) parent.findViewById(R.id.androidtest_5_b);
-		cb5_c = (CheckBox) parent.findViewById(R.id.androidtest_5_c);
-		cb5_d = (CheckBox) parent.findViewById(R.id.androidtest_5_d);
+		cb4_a = (CheckBox) parentView.findViewById(R.id.androidtest_4_a);
+		cb4_b = (CheckBox) parentView.findViewById(R.id.androidtest_4_b);
+		cb4_c = (CheckBox) parentView.findViewById(R.id.androidtest_4_c);
+		cb4_d = (CheckBox) parentView.findViewById(R.id.androidtest_4_d);
+		cb5_a = (CheckBox) parentView.findViewById(R.id.androidtest_5_a);
+		cb5_b = (CheckBox) parentView.findViewById(R.id.androidtest_5_b);
+		cb5_c = (CheckBox) parentView.findViewById(R.id.androidtest_5_c);
+		cb5_d = (CheckBox) parentView.findViewById(R.id.androidtest_5_d);
 		// 提交按钮
-		submit = (Button) parent.findViewById(R.id.submit);
+		submit_android = (Button) parentView.findViewById(R.id.submit_android);
 	}
 
 	// 设置监听器
@@ -76,7 +76,7 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 		cb5_c.setOnCheckedChangeListener(listener);
 		cb5_d.setOnCheckedChangeListener(listener);
 		// 提交按钮
-		submit.setOnClickListener(this);
+		submit_android.setOnClickListener(this);
 	}
 
 	/**
@@ -171,12 +171,13 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		// 父级Activity
-		FragmentActivity activity = getActivity();
+		Activity activity = getActivity();
 		// 拼接多选题答案
 		four_topic = four_topic1 + four_topic2 + four_topic3 + four_topic4;
 		five_topic = five_topic1 + five_topic2 + five_topic3 + five_topic4;
 		// 获取结果
-		new SendResult(activity, one_topic, two_topic, three_topic, four_topic, five_topic, "android");
+		new SendResult(activity, one_topic, two_topic, three_topic, four_topic, five_topic,
+				ResultActivity.ANDROID_TEST);
 	}
 
 }

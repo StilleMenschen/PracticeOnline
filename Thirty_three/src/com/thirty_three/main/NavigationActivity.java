@@ -37,7 +37,7 @@ public class NavigationActivity extends Activity implements OnPageChangeListener
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// 标记当前Activity窗口占满屏幕
+		// 设置当前Activity窗口占满屏幕
 		int flag = WindowManager.LayoutParams.FLAG_FULLSCREEN;
 		getWindow().setFlags(flag, flag);
 		// 加载布局文件

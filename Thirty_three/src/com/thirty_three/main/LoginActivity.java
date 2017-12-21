@@ -1,11 +1,8 @@
 package com.thirty_three.main;
 
-import com.thirty_three.main.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -14,10 +11,11 @@ import android.widget.Toast;
 
 /**
  * 登录界面
- *
  */
 public class LoginActivity extends Activity {
-	private Button login;
+	// 登录按钮
+	private Button btnlogin;
+	// 用户名和密码输入框
 	private EditText username, passwor;
 
 	@Override
@@ -29,7 +27,7 @@ public class LoginActivity extends Activity {
 	}
 
 	private void findViewId() {
-		login = (Button) findViewById(R.id.login_activity_login);
+		btnlogin = (Button) findViewById(R.id.login_activity_login);
 		username = (EditText) findViewById(R.id.username);
 		passwor = (EditText) findViewById(R.id.password);
 		username.setText("admin");
@@ -37,44 +35,45 @@ public class LoginActivity extends Activity {
 	}
 
 	private void listener() {
-		login.setOnClickListener(new OnClickListener() {
+		btnlogin.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-
 				String user = username.getText().toString().trim();
 				String pass = passwor.getText().toString().trim();
-				if (!user.trim().equals("") && !pass.trim().equals("")) {
 
-					if ("admin".equals(user) && "123456".equals(pass)) {
-						Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-						startActivity(intent);
-						finish();
-					} else if ("admin".equals(user) && !"123456".equals(pass)) {
-						Toast.makeText(getApplicationContext(), R.string.pass_miss, Toast.LENGTH_SHORT).show();
-					} else {
-						Toast.makeText(getApplicationContext(), R.string.login_lose, Toast.LENGTH_SHORT).show();
-					}
-				} else if (user.equals("") && !pass.equals("")) {
-					Toast.makeText(getApplicationContext(), R.string.user_isnotnull, Toast.LENGTH_SHORT).show();
-
-				} else if (!user.equals("") && pass.equals("")) {
-					Toast.makeText(getApplicationContext(), R.string.pass_isnotnull, Toast.LENGTH_SHORT).show();
+				/* 用户名为空 */
+				if (user.equals("")) {
+					onToast(R.string.user_isnotnull);
 				} else {
-					Toast.makeText(getApplicationContext(), R.string.user_pass_isnotnull, Toast.LENGTH_SHORT).show();
+					/* 密码为空 */
+					if (pass.equals("")) {
+						onToast(R.string.pass_isnotnull);
+					} else {
+						if ("admin".equals(user) && "123456".equals(pass)) {
+							Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+							startActivity(intent);
+							finish();
+						} else if ("admin".equals(user) && !"123456".equals(pass)) {
+							onToast(R.string.pass_miss);
+						} else {
+							onToast(R.string.login_lose);
+						}
+					}
 				}
-
 			}
+
+			private void onToast(int sid) {
+				Toast.makeText(getApplicationContext(), sid, Toast.LENGTH_SHORT).show();
+			}
+
 		});
 	}
 
+	// 返回按钮按下
 	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-		if (keyCode == KeyEvent.KEYCODE_BACK) {
-			finish();
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
+	public void onBackPressed() {
+		super.onBackPressed();
+		finish();
 	}
 }

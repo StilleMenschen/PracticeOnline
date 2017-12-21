@@ -29,7 +29,7 @@ public class SendResult {
 	 *            测试类型(android or java)
 	 */
 	public SendResult(Activity context, String one_topic, String two_topic, String three_topic, String four_topic,
-			String five_topic, String testType) {
+			String five_topic, int testType) {
 		// 若题目完成了
 		if (!one_topic.equals("") && !two_topic.equals("") && !three_topic.equals("") && four_topic.length() > 0
 				&& five_topic.length() > 0) {

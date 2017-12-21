@@ -231,7 +231,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/submit"
+                android:id="@+id/submit_android"
                 style="@style/submit_bt"
                 android:text="@string/submit" />
         </LinearLayout>

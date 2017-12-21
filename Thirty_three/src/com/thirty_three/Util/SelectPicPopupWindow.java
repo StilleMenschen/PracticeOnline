@@ -25,7 +25,6 @@ public class SelectPicPopupWindow extends PopupWindow {
 	private View mMenuView;
 
 	public SelectPicPopupWindow() {
-		
 	}
 
 	@SuppressLint("InflateParams")
@@ -37,26 +36,27 @@ public class SelectPicPopupWindow extends PopupWindow {
 		listener(itemsOnClick);
 
 		// 设置SelectPicPopupWindow的View
-		this.setContentView(mMenuView);
+		setContentView(mMenuView);
 		// 设置弹出窗体的宽
-		this.setWidth(LayoutParams.MATCH_PARENT);
+		setWidth(LayoutParams.MATCH_PARENT);
 		// 设置弹出窗体的高
-		this.setHeight(LayoutParams.WRAP_CONTENT);
+		setHeight(LayoutParams.WRAP_CONTENT);
 		// 设置弹出窗体可点击
-		this.setFocusable(true);
+		setFocusable(true);
 		// 设置弹出窗体动画效果
-		this.setAnimationStyle(R.style.AnimBottom);
+		setAnimationStyle(R.style.AnimBottom);
 		// 颜色为半透明
-		ColorDrawable dw = new ColorDrawable(0xb0000000);
+		ColorDrawable dw = new ColorDrawable(0x00000000);
 		// 设置SelectPicPopupWindow弹出窗体的背景
-		this.setBackgroundDrawable(dw);
+		setBackgroundDrawable(dw);
 		// 触屏监听
 		mMenuView.setOnTouchListener(new OnTouchListener() {
 
 			public boolean onTouch(View v, MotionEvent event) {
 				int height = mMenuView.findViewById(R.id.pop_layout).getTop();
+				int action = event.getAction();
 				int y = (int) event.getY();
-				if (event.getAction() == MotionEvent.ACTION_UP) {
+				if (action == MotionEvent.ACTION_UP) {
 					if (y < height) {
 						dismiss();
 					}

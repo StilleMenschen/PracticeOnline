@@ -27,15 +27,15 @@
             android:gravity="center|start"
             android:text="@string/back"
             android:textColor="@color/whiles"
-            android:textSize="16sp" />
+            android:textSize="@dimen/shiliu" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:text="@string/help"
-            android:textColor="#fff"
-            android:textSize="18sp" />
+            android:textColor="@color/whiles"
+            android:textSize="@dimen/shiba" />
     </RelativeLayout>
 
     <LinearLayout
@@ -50,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/help_content"
-            android:textSize="18sp" />
+            android:textColor="@color/black"
+            android:textSize="@dimen/shiba" />
     </LinearLayout>
 
 </LinearLayout>

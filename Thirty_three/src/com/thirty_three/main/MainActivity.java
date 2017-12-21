@@ -2,11 +2,11 @@ package com.thirty_three.main;
 
 import com.thirty_three.Util.SelectPicPopupWindow;
 import com.thirty_three.adapter.FragmentAdapter;
-import com.thirty_three.main.R;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.Gravity;
@@ -14,20 +14,25 @@ import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.Toast;
 
 /**
  * 主界面
  */
-public class MainActivity extends FragmentActivity implements OnClickListener {
-
+public class MainActivity extends FragmentActivity {
+	// 标记试题页面的类型
 	private static final int TAB_ANDROID = 0;
 	private static final int TAB_JAVA = 1;
+	// 返回键按下的de延时计算
 	private long waitTime = 2000;
 	private long touchTime = 0;
-	private ViewPager viewPager;// 滑动的页
-	private RadioButton home_android, home_java;
+	// 滑动的页
+	private ViewPager viewPager;
+	// 试题页面
+	private RadioGroup radioGroup;
+	// Menu菜单
 	private SelectPicPopupWindow menuWindow;
 
 	@Override
@@ -40,26 +45,25 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 	private void findView() {
 		viewPager = (ViewPager) findViewById(R.id.viewpager);
-		home_android = (RadioButton) findViewById(R.id.home_android);
-		home_java = (RadioButton) findViewById(R.id.home_java);
-
-		home_android.setOnClickListener(this);
-		home_java.setOnClickListener(this);
-
-		viewPager.setAdapter(new FragmentAdapter(getSupportFragmentManager()));
+		radioGroup = (RadioGroup) findViewById(R.id.home_group);
+		FragmentManager manager = getSupportFragmentManager();
+		FragmentAdapter adapter = new FragmentAdapter(manager);
+		viewPager.setAdapter(adapter);
 	}
 
 	private void addListener() {
+		// 页面监听器
 		viewPager.setOnPageChangeListener(new OnPageChangeListener() {
 
 			@Override
 			public void onPageSelected(int id) {
+				// ViewPager中的Tab页改变时，同步改变单选按钮的选中状态
 				switch (id) {
-				case TAB_ANDROID:
-					home_android.setChecked(true);
+				case TAB_ANDROID:// Android测试
+					radioGroup.check(R.id.home_android);
 					break;
-				case TAB_JAVA:
-					home_java.setChecked(true);
+				case TAB_JAVA:// Java测试
+					radioGroup.check(R.id.home_java);
 					break;
 				}
 			}
@@ -72,60 +76,60 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			public void onPageScrollStateChanged(int arg0) {
 			}
 		});
-	}
+		// 单选按钮组监听器
+		radioGroup.setOnCheckedChangeListener(new OnCheckedChangeListener() {
 
-	/**
-	 * RadioRutton点击事件实现
-	 */
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.home_android:
-			viewPager.setCurrentItem(TAB_ANDROID);
-			break;
-		case R.id.home_java:
-			viewPager.setCurrentItem(TAB_JAVA);
-			break;
-		}
+			@Override
+			public void onCheckedChanged(RadioGroup group, int checkedId) {
+				switch (checkedId) {
+				case R.id.home_android:// Android测试
+					viewPager.setCurrentItem(TAB_ANDROID);
+					break;
+				case R.id.home_java:// Java测试
+					viewPager.setCurrentItem(TAB_JAVA);
+					break;
+				}
+			}
+		});
 	}
 
 	@Override
 	public boolean onMenuOpened(int featureId, Menu menu) {
-
 		menuWindow = new SelectPicPopupWindow(MainActivity.this, itemsOnClick);
-		// 显示窗口
-		menuWindow.showAtLocation(findViewById(R.id.main), Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
-
+		// 菜单所在的父布局
+		View parent = findViewById(R.id.main);
+		// 显示位置(底部|水平居中)
+		menuWindow.showAtLocation(parent, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
 		return false;
 	}
 
 	@Override
 	public boolean onPrepareOptionsMenu(Menu menu) {
-		menu.add("menu");
+		menu.add("Menu");// Menu标题
 		return super.onPrepareOptionsMenu(menu);
 	}
 
-	// 弹出窗口实现监听类
+	// 为弹出菜单窗口实现监听类
 	private OnClickListener itemsOnClick = new OnClickListener() {
-
 		public void onClick(View v) {
-			menuWindow.dismiss();
+			menuWindow.dismiss();// 关掉菜单
+			Intent intent;
 			switch (v.getId()) {
-			case R.id.help:
-				Intent intent1 = new Intent(MainActivity.this, HelpActivity.class);
-				startActivity(intent1);
+			case R.id.help:// 帮助
+				intent = new Intent(MainActivity.this, HelpActivity.class);
+				startActivity(intent);
 				break;
-			case R.id.exit:
+			case R.id.exit:// 退出
 				finish();
 				break;
-			case R.id.cancel:
-				Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+			case R.id.cancel:// 退出登录
+				intent = new Intent(MainActivity.this, LoginActivity.class);
 				startActivity(intent);
 				finish();
 				break;
-			case R.id.about:
-				Intent intents = new Intent(MainActivity.this, AboutActivity.class);
-				startActivity(intents);
+			case R.id.about:// 关于
+				intent = new Intent(MainActivity.this, AboutActivity.class);
+				startActivity(intent);
 				break;
 			}
 		}
@@ -133,12 +137,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
 	@Override
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-		if (event.getAction() == KeyEvent.ACTION_DOWN && KeyEvent.KEYCODE_BACK == keyCode) {
+		int action = event.getAction();
+		if (action == KeyEvent.ACTION_DOWN && KeyEvent.KEYCODE_BACK == keyCode) {
 			long currentTime = System.currentTimeMillis();
 			if ((currentTime - touchTime) >= waitTime) {
 				Toast.makeText(this, "再按一次退出", Toast.LENGTH_SHORT).show();
-				touchTime = currentTime;
+				touchTime = System.currentTimeMillis();
 			} else {
 				finish();
 				// 退出后通过进程PID关闭进程
@@ -148,6 +152,5 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			return true;
 		}
 		return super.onKeyDown(keyCode, event);
-
 	}
 }

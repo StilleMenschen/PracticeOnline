@@ -14,10 +14,9 @@
 
         <TextView
             android:id="@+id/result_title"
-            style="@style/title"
-            android:text="" />
+            style="@style/title" />
 
-        <TextView
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"
@@ -92,23 +91,19 @@
 
                     <TextView
                         android:id="@+id/present1"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/right_wrong1"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/result1"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/score1"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -123,23 +118,19 @@
 
                     <TextView
                         android:id="@+id/present2"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/right_wrong2"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/result2"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/score2"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -154,23 +145,19 @@
 
                     <TextView
                         android:id="@+id/present3"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/right_wrong3"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/result3"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/score3"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -230,23 +217,19 @@
 
                     <TextView
                         android:id="@+id/present4"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/right_wrong4"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/result4"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/score4"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -261,23 +244,19 @@
 
                     <TextView
                         android:id="@+id/present5"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/right_wrong5"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/result5"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
 
                     <TextView
                         android:id="@+id/score5"
-                        style="@style/result_trem_tv"
-                        android:text="" />
+                        style="@style/result_trem_tv" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -296,8 +275,7 @@
 
                 <TextView
                     android:id="@+id/total_score"
-                    style="@style/result_tv"
-                    android:text="" />
+                    style="@style/result_tv" />
             </LinearLayout>
 
             <LinearLayout
