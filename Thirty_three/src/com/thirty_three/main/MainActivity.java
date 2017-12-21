@@ -19,8 +19,6 @@ import android.widget.Toast;
 
 /**
  * Ö÷½çÃæ
- * 
- *
  */
 public class MainActivity extends FragmentActivity implements OnClickListener {
 
@@ -63,20 +61,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 				case TAB_JAVA:
 					home_java.setChecked(true);
 					break;
-
-				default:
-					break;
 				}
 			}
 
 			@Override
 			public void onPageScrolled(int arg0, float arg1, int arg2) {
-
 			}
 
 			@Override
 			public void onPageScrollStateChanged(int arg0) {
-
 			}
 		});
 	}
@@ -92,9 +85,6 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			break;
 		case R.id.home_java:
 			viewPager.setCurrentItem(TAB_JAVA);
-			break;
-
-		default:
 			break;
 		}
 	}
@@ -123,26 +113,22 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 			switch (v.getId()) {
 			case R.id.help:
 				Intent intent1 = new Intent(MainActivity.this, HelpActivity.class);
-				MainActivity.this.startActivity(intent1);
+				startActivity(intent1);
 				break;
 			case R.id.exit:
-				MainActivity.this.finish();
+				finish();
 				break;
 			case R.id.cancel:
 				Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-				MainActivity.this.startActivity(intent);
-				MainActivity.this.finish();
+				startActivity(intent);
+				finish();
 				break;
 			case R.id.about:
 				Intent intents = new Intent(MainActivity.this, AboutActivity.class);
-				MainActivity.this.startActivity(intents);
-				break;
-			default:
+				startActivity(intents);
 				break;
 			}
-
 		}
-
 	};
 
 	@Override

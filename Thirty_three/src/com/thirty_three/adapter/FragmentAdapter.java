@@ -11,32 +11,30 @@ import android.support.v4.app.FragmentPagerAdapter;
  * fragmentPagerAdapter适配器
  */
 public class FragmentAdapter extends FragmentPagerAdapter {
-	private static final int TAB_ANDROID = 0;
-	private static final int TAB_JAVA = 1;
+	private static final int TAB_ANDROID = 0;// Android测试Fragment索引
+	private static final int TAB_JAVA = 1;// Java测试Fragment索引
+	public final static int TAB_COUNT = 2;// 测试题页面总数
 
 	public FragmentAdapter(FragmentManager fm) {
-		super(fm);
+		super(fm);// 将FragmentManager传给父类
 	}
-
-	public final static int TAB_COUNT = 2;
 
 	// 获取要滑动的控件的数量
 	@Override
 	public int getCount() {
-		// return list.size();
 		return TAB_COUNT;
 	}
 
 	@Override
 	public Fragment getItem(int id) {
-
+		// 根据Id返回对应的Fragment
 		switch (id) {
-		case TAB_ANDROID:
-			new AndroidTestFragment();
-			return new AndroidTestFragment();
-		case TAB_JAVA:
-			new JavaTestFragment();
-			return new JavaTestFragment();
+		case TAB_ANDROID:// 如果请求的是Android测试
+			AndroidTestFragment androidTest = new AndroidTestFragment();
+			return androidTest;
+		case TAB_JAVA:// 如果过请求的是Java测试
+			JavaTestFragment javaTest = new JavaTestFragment();
+			return javaTest;
 		}
 		return null;
 	}

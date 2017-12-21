@@ -2,76 +2,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@drawable/result_bg">
-    
-	<RelativeLayout 
-		 android:layout_width="match_parent"
-		 android:layout_height="48.0dp"
-		 android:background="@drawable/radio_toptitle_shape">
+    android:background="@drawable/result_bg"
+    android:orientation="vertical" >
 
-        <ImageButton 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@drawable/radio_toptitle_shape" >
+
+        <ImageButton
             android:id="@+id/about_back"
-            android:layout_width="48.0dp"
-	        android:layout_height="match_parent"
-	        android:layout_alignParentLeft="true"
-	        android:scaleType="centerInside"
-	        android:background="@drawable/help_back_bg"
-	        android:src="@drawable/help_topback"/>
-        <TextView 
+            android:layout_width="48dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:background="@drawable/help_back_bg"
+            android:contentDescription="@string/hello_world"
+            android:scaleType="centerInside"
+            android:src="@drawable/help_topback" />
+        <!-- android:scaleType="centerInside" 将图片的内容完整居中显示， -->
+        <!-- 通过按比例缩小或以原来的尺寸使得图片长/宽等于或小于View的长/宽 -->
+
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:gravity="center|left"
-            android:textSize="16sp"
-            android:textColor="@color/whiles"
             android:layout_toRightOf="@id/about_back"
-            android:text="@string/back"/>
-	   <TextView 
-		    android:layout_width="wrap_content"
-		    android:layout_height="wrap_content"
-		    android:text="@string/about"
-		    android:textColor="#fff"
-		    android:textSize="@dimen/ershi"
-		    android:layout_centerInParent="true"
-	    />
-	</RelativeLayout>
-	<LinearLayout 
+            android:gravity="center"
+            android:text="@string/back"
+            android:textColor="@color/whiles"
+            android:textSize="16sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="@string/about"
+            android:textColor="#fff"
+            android:textSize="@dimen/ershi" />
+        <!-- android:layout_centerInParent="true" 在父布局中居中显示 -->
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="20dp"
-        >
-	    <LinearLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="match_parent"
-	        android:background="@drawable/radio_shape"
-	        android:orientation="vertical"
-	        android:padding="20dp"
-	        
-	        >
-	        <ImageView 
-	            android:layout_width="match_parent"
-	            android:layout_height="0dp"
-	            android:layout_weight="1"
-	            android:src="@drawable/flag"/>
-	        <TextView 
-	            android:layout_width="match_parent"
-	            android:layout_height="0dp"
-	            android:layout_weight="1"
-	            android:gravity="center_horizontal"
-	            android:textSize="@dimen/shiba"
-	            android:text="@string/about_content"/>
-	        <ImageView 
-	            android:layout_width="match_parent"
-	            android:layout_height="0dp"
-	            android:layout_weight="1"
-	            android:src="@drawable/about_flag"/>
-	        <TextView 
-	            android:layout_width="match_parent"
-	            android:layout_height="0dp"
-	            android:layout_weight="1"
-	            android:gravity="center"
-	            android:textSize="@dimen/shier"
-	            android:text="@string/version"/>
-	    </LinearLayout>
+        android:layout_margin="20dp"
+        android:background="@drawable/radio_shape"
+        android:orientation="vertical"
+        android:padding="20dp" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:contentDescription="@string/hello_world"
+            android:src="@drawable/flag" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/about_content"
+            android:textColor="@color/blueviolet"
+            android:textSize="@dimen/shiba" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/version"
+            android:textColor="@color/black"
+            android:textSize="@dimen/shier" />
     </LinearLayout>
+
 </LinearLayout>
