@@ -1,85 +1,72 @@
 package com.thirty_three.main;
 
-
-
 import com.thirty_three.Util.SendResult;
-import com.thirty_three.main.R;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
-import android.widget.Button;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
 /**
  * android 题目
  */
 public class AndroidTestFragment extends Fragment implements OnClickListener {
-	private View view;
+	// 父布局
+	private View parent;
+	// 提交按钮
 	private Button submit;
-	private RadioGroup android_rg1,android_rg2,android_rg3;
-	private RadioButton android_rb1_a,android_rb1_b,android_rb1_c,android_rb1_d,
-			android_rb2_a,android_rb2_b,android_rb2_c,android_rb2_d,
-			android_rb3_a,android_rb3_b,android_rb3_c,android_rb3_d;
-	private CheckBox cb4_a,cb4_b,cb4_c,cb4_d,cb5_a,cb5_b,cb5_c,cb5_d;
-	
-	private String one_topic="",two_topic="",three_topic="";
-	private String four_topic1="",four_topic2="",four_topic3="",four_topic4="",
-			five_topic1="",five_topic2="",five_topic3="",five_topic4="",
-	        four_topic,five_topic;
-	
+	// 单选按钮组
+	private RadioGroup android_rg1, android_rg2, android_rg3;
+	// 复选框
+	private CheckBox cb4_a, cb4_b, cb4_c, cb4_d, cb5_a, cb5_b, cb5_c, cb5_d;
+	// 单选题答案存储
+	private String one_topic = "", two_topic = "", three_topic = "";
+	// 多选题答案存储
+	private String four_topic1 = "", four_topic2 = "", four_topic3 = "", four_topic4 = "", five_topic1 = "",
+			five_topic2 = "", five_topic3 = "", five_topic4 = "", four_topic, five_topic;
+
 	@Override
-	public View onCreateView(LayoutInflater inflater, ViewGroup container,
-			Bundle savedInstanceState) {
-		view = inflater.inflate(R.layout.androidtest, container, false);
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		parent = inflater.inflate(R.layout.androidtest, container, false);
 		findViewId();
 		listener();
-		
-		return view;
+
+		return parent;
 	}
 
 	private void findViewId() {
-		android_rg1 = (RadioGroup) view.findViewById(R.id.android_rg1);
-		android_rg2 = (RadioGroup) view.findViewById(R.id.android_rg2);
-		android_rg3 = (RadioGroup) view.findViewById(R.id.android_rg3);
-		
-		android_rb1_a = (RadioButton) view.findViewById(R.id.android_rb1_a);
-		android_rb1_b = (RadioButton) view.findViewById(R.id.android_rb1_b);
-		android_rb1_c = (RadioButton) view.findViewById(R.id.android_rb1_c);
-		android_rb1_d = (RadioButton) view.findViewById(R.id.android_rb1_d);
-		android_rb2_a = (RadioButton) view.findViewById(R.id.android_rb2_a);
-		android_rb2_b = (RadioButton) view.findViewById(R.id.android_rb2_b);
-		android_rb2_c = (RadioButton) view.findViewById(R.id.android_rb2_c);
-		android_rb2_d = (RadioButton) view.findViewById(R.id.android_rb2_d);
-		android_rb3_a = (RadioButton) view.findViewById(R.id.android_rb3_a);
-		android_rb3_b = (RadioButton) view.findViewById(R.id.android_rb3_b);
-		android_rb3_c = (RadioButton) view.findViewById(R.id.android_rb3_c);
-		android_rb3_d = (RadioButton) view.findViewById(R.id.android_rb3_d);
-		
-		
-		cb4_a = (CheckBox) view.findViewById(R.id.androidtest_4_a);
-		cb4_b = (CheckBox) view.findViewById(R.id.androidtest_4_b);
-		cb4_c = (CheckBox) view.findViewById(R.id.androidtest_4_c);
-		cb4_d = (CheckBox) view.findViewById(R.id.androidtest_4_d);
-		cb5_a = (CheckBox) view.findViewById(R.id.androidtest_5_a);
-		cb5_b = (CheckBox) view.findViewById(R.id.androidtest_5_b);
-		cb5_c = (CheckBox) view.findViewById(R.id.androidtest_5_c);
-		cb5_d = (CheckBox) view.findViewById(R.id.androidtest_5_d);
-		
-		submit = (Button) view.findViewById(R.id.submit);
+		// 单选按钮组
+		android_rg1 = (RadioGroup) parent.findViewById(R.id.android_rg1);
+		android_rg2 = (RadioGroup) parent.findViewById(R.id.android_rg2);
+		android_rg3 = (RadioGroup) parent.findViewById(R.id.android_rg3);
+		// 复选框
+		cb4_a = (CheckBox) parent.findViewById(R.id.androidtest_4_a);
+		cb4_b = (CheckBox) parent.findViewById(R.id.androidtest_4_b);
+		cb4_c = (CheckBox) parent.findViewById(R.id.androidtest_4_c);
+		cb4_d = (CheckBox) parent.findViewById(R.id.androidtest_4_d);
+		cb5_a = (CheckBox) parent.findViewById(R.id.androidtest_5_a);
+		cb5_b = (CheckBox) parent.findViewById(R.id.androidtest_5_b);
+		cb5_c = (CheckBox) parent.findViewById(R.id.androidtest_5_c);
+		cb5_d = (CheckBox) parent.findViewById(R.id.androidtest_5_d);
+		// 提交按钮
+		submit = (Button) parent.findViewById(R.id.submit);
 	}
-	
+
+	// 设置监听器
 	private void listener() {
-		
+		// 单选按钮组
 		android_rg1.setOnCheckedChangeListener(rgListener);
 		android_rg2.setOnCheckedChangeListener(rgListener);
 		android_rg3.setOnCheckedChangeListener(rgListener);
+		// 复选框
 		cb4_a.setOnCheckedChangeListener(listener);
 		cb4_b.setOnCheckedChangeListener(listener);
 		cb4_c.setOnCheckedChangeListener(listener);
@@ -88,7 +75,7 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 		cb5_b.setOnCheckedChangeListener(listener);
 		cb5_c.setOnCheckedChangeListener(listener);
 		cb5_d.setOnCheckedChangeListener(listener);
-		
+		// 提交按钮
 		submit.setOnClickListener(this);
 	}
 
@@ -96,98 +83,100 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 	 * 单选题
 	 */
 	private RadioGroup.OnCheckedChangeListener rgListener = new RadioGroup.OnCheckedChangeListener() {
-		
+
 		@Override
 		public void onCheckedChanged(RadioGroup rg, int checkedId) {
-			
-			if(rg==android_rg1) {
-				if(android_rb1_a.getId()==checkedId) {
-					one_topic="A";
-				} else if(android_rb1_b.getId()==checkedId){
-					one_topic="B";
-				} else if(android_rb1_c.getId()==checkedId){
-					one_topic="C";
-				} else if(android_rb1_d.getId()==checkedId){
-					one_topic="D";
-				}
-			} else if (rg==android_rg2) {
-				if(android_rb2_a.getId()==checkedId) {
-					two_topic="A";
-				} else if(android_rb2_b.getId()==checkedId) {
-					two_topic="B";
-				} else if(android_rb2_c.getId()==checkedId) {
-					two_topic="C";
-				} else if(android_rb2_d.getId()==checkedId) {
-					two_topic="D";
-				}
-			} else if (rg==android_rg3) {
-				if(android_rb3_a.getId()==checkedId) {
-					three_topic="A";
-				} else if(android_rb3_b.getId()==checkedId) {
-					three_topic="B";
-				} else if(android_rb3_c.getId()==checkedId) {
-					three_topic="C";
-				} else if(android_rb3_d.getId()==checkedId) {
-					three_topic="D";
-				}
+			switch (checkedId) {
+			// 第一题
+			case R.id.android_rb1_a:
+				one_topic = "A";
+				break;
+			case R.id.android_rb1_b:
+				one_topic = "B";
+				break;
+			case R.id.android_rb1_c:
+				one_topic = "C";
+				break;
+			case R.id.android_rb1_d:
+				one_topic = "D";
+				break;
+			// 第二题
+			case R.id.android_rb2_a:
+				two_topic = "A";
+				break;
+			case R.id.android_rb2_b:
+				two_topic = "B";
+				break;
+			case R.id.android_rb2_c:
+				two_topic = "C";
+				break;
+			case R.id.android_rb2_d:
+				two_topic = "D";
+				break;
+			// 第三题
+			case R.id.android_rb3_a:
+				three_topic = "A";
+				break;
+			case R.id.android_rb3_b:
+				three_topic = "B";
+				break;
+			case R.id.android_rb3_c:
+				three_topic = "C";
+				break;
+			case R.id.android_rb3_d:
+				three_topic = "D";
+				break;
 			}
-			
 		}
 	};
-	
+
 	/**
 	 * 多选题
 	 */
 	private OnCheckedChangeListener listener = new OnCheckedChangeListener() {
-		
 		@Override
 		public void onCheckedChanged(CompoundButton cb, boolean isChecked) {
-			
-			//多选一
-			if(cb==cb4_a && isChecked) {
-				four_topic1 = "A";
-			} else if (cb==cb4_a && !isChecked) {
-				four_topic1 = "";
-			} else if (cb==cb4_b && isChecked) {
-				four_topic2 = "B";
-			} else if (cb==cb4_b && !isChecked) {
-				four_topic2 = "";
-			} else if (cb==cb4_c && isChecked) {
-				four_topic3 = "C";
-			} else if (cb==cb4_c && !isChecked) {
-				four_topic3 = "";
-			} else if (cb==cb4_d && isChecked) {
-				four_topic4 = "D";
-			} else if (cb==cb4_d && !isChecked) {
-				four_topic4 = "";
-			//多选二	
-			} else if (cb==cb5_a && isChecked) {
-				five_topic1 = "A";
-			} else if (cb==cb5_a && !isChecked) {
-				five_topic1 = "";
-			} else if (cb==cb5_b && isChecked) {
-				five_topic2 = "B";
-			} else if (cb==cb5_b && !isChecked) {
-				five_topic2 = "";
-			} else if (cb==cb5_c && isChecked) {
-				five_topic3 = "C";
-			} else if (cb==cb5_c && !isChecked) {
-				five_topic3 = "";
-			} else if (cb==cb5_d && isChecked) {
-				five_topic4 = "D";
-			} else if (cb==cb5_d && !isChecked) {
-				five_topic4 = "";
+			int cbid = cb.getId();
+			switch (cbid) {
+			// 多选题4
+			case R.id.androidtest_4_a:
+				four_topic1 = isChecked ? "A" : "";
+				break;
+			case R.id.androidtest_4_b:
+				four_topic2 = isChecked ? "B" : "";
+				break;
+			case R.id.androidtest_4_c:
+				four_topic3 = isChecked ? "C" : "";
+				break;
+			case R.id.androidtest_4_d:
+				four_topic4 = isChecked ? "D" : "";
+				break;
+			// 多选题5
+			case R.id.androidtest_5_a:
+				five_topic1 = isChecked ? "A" : "";
+				break;
+			case R.id.androidtest_5_b:
+				five_topic1 = isChecked ? "B" : "";
+				break;
+			case R.id.androidtest_5_c:
+				five_topic1 = isChecked ? "C" : "";
+				break;
+			case R.id.androidtest_5_d:
+				five_topic1 = isChecked ? "D" : "";
+				break;
 			}
 		}
 	};
-	
+
 	@Override
 	public void onClick(View v) {
-		
-		four_topic = four_topic1+four_topic2+four_topic3+four_topic4;
-		five_topic = five_topic1+five_topic2+five_topic3+five_topic4;
-		new SendResult(getActivity(), one_topic, two_topic, three_topic, four_topic, five_topic,"android");
-		
+		// 父级Activity
+		FragmentActivity activity = getActivity();
+		// 拼接多选题答案
+		four_topic = four_topic1 + four_topic2 + four_topic3 + four_topic4;
+		five_topic = five_topic1 + five_topic2 + five_topic3 + five_topic4;
+		// 获取结果
+		new SendResult(activity, one_topic, two_topic, three_topic, four_topic, five_topic, "android");
 	}
 
 }
