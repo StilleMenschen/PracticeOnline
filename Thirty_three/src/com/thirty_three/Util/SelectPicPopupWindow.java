@@ -1,6 +1,7 @@
 package com.thirty_three.Util;
 
-import com.thirty_three.test.R;
+import com.thirty_three.main.R;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
@@ -16,9 +17,6 @@ import android.widget.PopupWindow;
 
 /**
  * 自定义菜单
- * 
- * 
- *
  */
 public class SelectPicPopupWindow extends PopupWindow {
 

@@ -1,7 +1,7 @@
 package com.thirty_three.adapter;
 
-import com.thirty_three.test.AndroidTestFragment;
-import com.thirty_three.test.JavaTestFragment;
+import com.thirty_three.main.AndroidTestFragment;
+import com.thirty_three.main.JavaTestFragment;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;

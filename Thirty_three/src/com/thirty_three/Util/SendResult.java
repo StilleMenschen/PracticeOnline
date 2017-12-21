@@ -1,6 +1,6 @@
 package com.thirty_three.Util;
 
-import com.thirty_three.test.ResultActivity;
+import com.thirty_three.main.ResultActivity;
 
 import android.app.Activity;
 import android.content.Intent;
