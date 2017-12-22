@@ -1,7 +1,7 @@
 package com.thirty_three.main;
 
 import com.thirty_three.Util.SelectPicPopupWindow;
-import com.thirty_three.main.R;
+import com.thirty_three.Util.onMenuOpenedListener;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -18,15 +18,16 @@ import android.widget.Toast;
 /**
  * 题目对错判断
  */
-public class ResultActivity extends Activity {
+public class ResultActivity extends Activity implements onMenuOpenedListener {
 
+	// 标记试题类型
 	public static final int ANDROID_TEST = 0x0010;
 	public static final int JAVA_TEST = 0x0011;
 
 	private long waitTime = 2000;
 	private long touchTime = 0;
 	// 按钮
-	private Button show_result, one_again;
+	private Button show_result, one_again, btn_result_menu;
 	// 结果显示
 	private TextView titlt, present1, present2, present3, present4, present5, right_wrong1, right_wrong2, right_wrong3,
 			right_wrong4, right_wrong5, result1, result2, result3, result4, result5, score1, score2, score3, score4,
@@ -85,11 +86,14 @@ public class ResultActivity extends Activity {
 		show_result = (Button) findViewById(R.id.show_result);
 		// 重做按钮
 		one_again = (Button) findViewById(R.id.one_again);
+		// 菜单按钮
+		btn_result_menu = (Button) findViewById(R.id.btn_result_menu);
 	}
 
 	private void Listener() {
 		show_result.setOnClickListener(buttonListener);
 		one_again.setOnClickListener(buttonListener);
+		btn_result_menu.setOnClickListener(buttonListener);
 	}
 
 	private void getResult() {
@@ -277,17 +281,25 @@ public class ResultActivity extends Activity {
 				startActivity(intent);
 				finish();
 				break;
+			case R.id.btn_result_menu:
+				openMenu();
+				break;
 			}
 		}
 	};
 
 	@Override
-	public boolean onMenuOpened(int featureId, Menu menu) {
+	public void openMenu() {
 		menuWindow = new SelectPicPopupWindow(ResultActivity.this, itemsOnClick);
 		// 菜单所在的父布局
 		View parent = findViewById(R.id.result_lin);
 		// 显示位置(底部|水平居中)
 		menuWindow.showAtLocation(parent, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+	}
+
+	@Override
+	public boolean onMenuOpened(int featureId, Menu menu) {
+		openMenu();
 		return false;
 	}
 
@@ -302,7 +314,8 @@ public class ResultActivity extends Activity {
 		public void onClick(View v) {
 			menuWindow.dismiss();// 关掉菜单
 			Intent intent;
-			switch (v.getId()) {
+			int vid = v.getId();
+			switch (vid) {
 			case R.id.help:// 帮助
 				intent = new Intent(ResultActivity.this, HelpActivity.class);
 				startActivity(intent);
@@ -341,5 +354,4 @@ public class ResultActivity extends Activity {
 		}
 		return super.onKeyDown(keyCode, event);
 	}
-
 }

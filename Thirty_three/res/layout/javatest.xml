@@ -11,11 +11,15 @@
         android:layout_height="48dp"
         android:background="@drawable/radio_toptitle_shape" >
 
+        <Button
+            android:id="@+id/btn_java_menu"
+            style="@style/btn_menu" />
+
         <TextView
             style="@style/title"
             android:text="@string/java_test" />
 
-        <TextView
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_alignParentBottom="true"

@@ -1,6 +1,7 @@
 package com.thirty_three.main;
 
 import com.thirty_three.Util.SendResult;
+import com.thirty_three.Util.onMenuOpenedListener;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -22,7 +23,8 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 	// 父布局
 	private View parentView;
 	// 提交按钮
-	private Button submit_java;
+	private Button submit_java, btn_java_menu;
+	private onMenuOpenedListener mListener;
 	// 单选按钮组
 	private RadioGroup java_rg1, java_rg2, java_rg3;
 	// 复选框
@@ -32,6 +34,10 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 	// 多选题答案
 	private String four_topic1 = "", four_topic2 = "", four_topic3 = "", four_topic4 = "", five_topic1 = "",
 			five_topic2 = "", five_topic3 = "", five_topic4 = "", four_topic, five_topic;
+
+	public JavaTestFragment(onMenuOpenedListener listener) {
+		mListener = listener;
+	}
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -57,6 +63,8 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 		cb5_d = (CheckBox) parentView.findViewById(R.id.javatest_5_d);
 		// 提交按钮
 		submit_java = (Button) parentView.findViewById(R.id.submit_java);
+		// 菜单按钮
+		btn_java_menu = (Button) parentView.findViewById(R.id.btn_java_menu);
 	}
 
 	private void listener() {
@@ -65,16 +73,18 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 		java_rg2.setOnCheckedChangeListener(rgListener);
 		java_rg3.setOnCheckedChangeListener(rgListener);
 		// 监听复选框
-		cb4_a.setOnCheckedChangeListener(listener);
-		cb4_b.setOnCheckedChangeListener(listener);
-		cb4_c.setOnCheckedChangeListener(listener);
-		cb4_d.setOnCheckedChangeListener(listener);
-		cb5_a.setOnCheckedChangeListener(listener);
-		cb5_b.setOnCheckedChangeListener(listener);
-		cb5_c.setOnCheckedChangeListener(listener);
-		cb5_d.setOnCheckedChangeListener(listener);
+		cb4_a.setOnCheckedChangeListener(cblistener);
+		cb4_b.setOnCheckedChangeListener(cblistener);
+		cb4_c.setOnCheckedChangeListener(cblistener);
+		cb4_d.setOnCheckedChangeListener(cblistener);
+		cb5_a.setOnCheckedChangeListener(cblistener);
+		cb5_b.setOnCheckedChangeListener(cblistener);
+		cb5_c.setOnCheckedChangeListener(cblistener);
+		cb5_d.setOnCheckedChangeListener(cblistener);
 		// 监听提交按钮
 		submit_java.setOnClickListener(this);
+		// 菜单按钮
+		btn_java_menu.setOnClickListener(this);
 	}
 
 	/**
@@ -131,7 +141,7 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 	/**
 	 * 多选题
 	 */
-	private OnCheckedChangeListener listener = new OnCheckedChangeListener() {
+	private OnCheckedChangeListener cblistener = new OnCheckedChangeListener() {
 
 		@Override
 		public void onCheckedChanged(CompoundButton cb, boolean isChecked) {
@@ -169,10 +179,19 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
-		Activity activity = getActivity();
-		four_topic = four_topic1 + four_topic2 + four_topic3 + four_topic4;
-		five_topic = five_topic1 + five_topic2 + five_topic3 + five_topic4;
-		// 判断题目
-		new SendResult(activity, one_topic, two_topic, three_topic, four_topic, five_topic, ResultActivity.JAVA_TEST);
+		int vid = v.getId();
+		switch (vid) {
+		case R.id.btn_java_menu:
+			mListener.openMenu();
+			break;
+		case R.id.submit_java:
+			Activity activity = getActivity();
+			four_topic = four_topic1 + four_topic2 + four_topic3 + four_topic4;
+			five_topic = five_topic1 + five_topic2 + five_topic3 + five_topic4;
+			// 判断题目
+			new SendResult(activity, one_topic, two_topic, three_topic, four_topic, five_topic,
+					ResultActivity.JAVA_TEST);
+			break;
+		}
 	}
 }

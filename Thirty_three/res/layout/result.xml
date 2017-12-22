@@ -12,6 +12,10 @@
         android:layout_height="48dp"
         android:background="@drawable/radio_toptitle_shape" >
 
+        <Button
+            android:id="@+id/btn_result_menu"
+            style="@style/btn_menu" />
+
         <TextView
             android:id="@+id/result_title"
             style="@style/title" />

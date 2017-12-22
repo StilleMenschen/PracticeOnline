@@ -1,6 +1,7 @@
 package com.thirty_three.main;
 
 import com.thirty_three.Util.SelectPicPopupWindow;
+import com.thirty_three.Util.onMenuOpenedListener;
 import com.thirty_three.adapter.FragmentAdapter;
 
 import android.content.Intent;
@@ -21,11 +22,8 @@ import android.widget.Toast;
 /**
  * 主界面
  */
-public class MainActivity extends FragmentActivity {
-	// 标记试题页面的类型
-	private static final int TAB_ANDROID = 0;
-	private static final int TAB_JAVA = 1;
-	// 返回键按下的de延时计算
+public class MainActivity extends FragmentActivity implements onMenuOpenedListener {
+	// 返回键按下的延时计算
 	private long waitTime = 2000;
 	private long touchTime = 0;
 	// 滑动的页
@@ -47,7 +45,7 @@ public class MainActivity extends FragmentActivity {
 		viewPager = (ViewPager) findViewById(R.id.viewpager);
 		radioGroup = (RadioGroup) findViewById(R.id.home_group);
 		FragmentManager manager = getSupportFragmentManager();
-		FragmentAdapter adapter = new FragmentAdapter(manager);
+		FragmentAdapter adapter = new FragmentAdapter(manager, this);
 		viewPager.setAdapter(adapter);
 	}
 
@@ -59,10 +57,10 @@ public class MainActivity extends FragmentActivity {
 			public void onPageSelected(int id) {
 				// ViewPager中的Tab页改变时，同步改变单选按钮的选中状态
 				switch (id) {
-				case TAB_ANDROID:// Android测试
+				case FragmentAdapter.TAB_ANDROID:// Android测试
 					radioGroup.check(R.id.home_android);
 					break;
-				case TAB_JAVA:// Java测试
+				case FragmentAdapter.TAB_JAVA:// Java测试
 					radioGroup.check(R.id.home_java);
 					break;
 				}
@@ -83,10 +81,10 @@ public class MainActivity extends FragmentActivity {
 			public void onCheckedChanged(RadioGroup group, int checkedId) {
 				switch (checkedId) {
 				case R.id.home_android:// Android测试
-					viewPager.setCurrentItem(TAB_ANDROID);
+					viewPager.setCurrentItem(FragmentAdapter.TAB_ANDROID);
 					break;
 				case R.id.home_java:// Java测试
-					viewPager.setCurrentItem(TAB_JAVA);
+					viewPager.setCurrentItem(FragmentAdapter.TAB_JAVA);
 					break;
 				}
 			}
@@ -94,12 +92,17 @@ public class MainActivity extends FragmentActivity {
 	}
 
 	@Override
-	public boolean onMenuOpened(int featureId, Menu menu) {
+	public void openMenu() {
 		menuWindow = new SelectPicPopupWindow(MainActivity.this, itemsOnClick);
 		// 菜单所在的父布局
 		View parent = findViewById(R.id.main);
 		// 显示位置(底部|水平居中)
 		menuWindow.showAtLocation(parent, Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 0);
+	}
+	
+	@Override
+	public boolean onMenuOpened(int featureId, Menu menu) {
+		openMenu();
 		return false;
 	}
 
@@ -114,7 +117,8 @@ public class MainActivity extends FragmentActivity {
 		public void onClick(View v) {
 			menuWindow.dismiss();// 关掉菜单
 			Intent intent;
-			switch (v.getId()) {
+			int vid = v.getId();
+			switch (vid) {
 			case R.id.help:// 帮助
 				intent = new Intent(MainActivity.this, HelpActivity.class);
 				startActivity(intent);
