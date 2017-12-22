@@ -129,8 +129,8 @@ public final class R {
         public static final int androidtest_5_b=0x7f0a0016;
         public static final int androidtest_5_c=0x7f0a0017;
         public static final int androidtest_5_d=0x7f0a0018;
-        public static final int cancel=0x7f0a003f;
-        public static final int exit=0x7f0a003e;
+        public static final int cancel=0x7f0a003e;
+        public static final int exit=0x7f0a003f;
         public static final int help=0x7f0a003d;
         public static final int help_back=0x7f0a001a;
         public static final int home_android=0x7f0a003a;

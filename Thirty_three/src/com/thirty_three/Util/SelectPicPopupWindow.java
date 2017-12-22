@@ -46,20 +46,20 @@ public class SelectPicPopupWindow extends PopupWindow {
 		// 设置弹出窗体动画效果
 		setAnimationStyle(R.style.AnimBottom);
 		// 颜色为半透明
-		ColorDrawable dw = new ColorDrawable(0x00000000);
+		ColorDrawable dw = new ColorDrawable(0xc0000000);
 		// 设置SelectPicPopupWindow弹出窗体的背景
 		setBackgroundDrawable(dw);
 		// 触屏监听
 		mMenuView.setOnTouchListener(new OnTouchListener() {
 
 			public boolean onTouch(View v, MotionEvent event) {
-				int height = mMenuView.findViewById(R.id.pop_layout).getTop();
+				//int height = mMenuView.findViewById(R.id.pop_layout).getTop();
 				int action = event.getAction();
-				int y = (int) event.getY();
+				//int y = (int) event.getY();
 				if (action == MotionEvent.ACTION_UP) {
-					if (y < height) {
+					//if (y < height) {
 						dismiss();
-					}
+					//}
 				}
 				v.performClick();
 				return true;

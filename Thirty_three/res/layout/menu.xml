@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/pop_layout"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_gravity="bottom"
-    android:orientation="vertical"
     android:padding="10dp" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/menu_bg_shape"
+        android:layout_alignParentBottom="true"
         android:gravity="center_horizontal"
         android:orientation="vertical" >
 
@@ -25,9 +24,9 @@
             android:background="@color/menu_tv" />
 
         <Button
-            android:id="@+id/exit"
+            android:id="@+id/cancel"
             style="@style/menu_btn"
-            android:text="@string/exit" />
+            android:text="@string/cancel_login" />
 
         <View
             android:layout_width="match_parent"
@@ -35,10 +34,10 @@
             android:background="@color/menu_tv" />
 
         <Button
-            android:id="@+id/cancel"
+            android:id="@+id/exit"
             style="@style/menu_btn"
-            android:text="@string/cancel_login" />
-        <View
+            android:text="@string/exit" />
+        <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:background="@color/menu_tv" />
@@ -49,4 +48,4 @@
             android:text="@string/about" />
     </LinearLayout>
 
-</LinearLayout>
+</RelativeLayout>
