@@ -26,7 +26,7 @@
     </style>
 
     <style name="main_tab_bottom">
-        <item name="android:textSize">13dp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:ellipsize">marquee</item>
         <item name="android:gravity">center_horizontal</item>
         <item name="android:background">@drawable/down_menu_bg</item>
@@ -108,11 +108,12 @@
 
     <style name="btn_menu">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:layout_alignParentLeft">true</item>
         <item name="android:layout_centerVertical">true</item>
-        <item name="android:layout_marginLeft">10dp</item>
-        <item name="android:background">@drawable/menu_34px</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+        <item name="android:src">@drawable/menu_34px</item>
     </style>
 
     <style name="radio_check">

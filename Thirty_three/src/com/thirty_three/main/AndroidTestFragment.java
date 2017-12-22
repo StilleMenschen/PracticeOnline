@@ -23,7 +23,9 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 	// 父布局
 	private View parentView;
 	// 提交按钮
-	private Button submit_android, btn_android_menu;
+	private Button submit_android;
+	// 菜单按钮
+	private View btn_android_menu;
 	private onMenuOpenedListener mListener;
 	// 单选按钮组
 	private RadioGroup android_rg1, android_rg2, android_rg3;
@@ -65,7 +67,7 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 		// 提交按钮
 		submit_android = (Button) parentView.findViewById(R.id.submit_android);
 		// 菜单按钮
-		btn_android_menu = (Button) parentView.findViewById(R.id.btn_android_menu);
+		btn_android_menu = parentView.findViewById(R.id.btn_android_menu);
 	}
 
 	// 设置监听器

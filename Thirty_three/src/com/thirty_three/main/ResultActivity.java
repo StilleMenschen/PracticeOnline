@@ -27,7 +27,9 @@ public class ResultActivity extends Activity implements onMenuOpenedListener {
 	private long waitTime = 2000;
 	private long touchTime = 0;
 	// 按钮
-	private Button show_result, one_again, btn_result_menu;
+	private Button show_result, one_again;
+	// 菜单按钮
+	private View btn_result_menu;
 	// 结果显示
 	private TextView titlt, present1, present2, present3, present4, present5, right_wrong1, right_wrong2, right_wrong3,
 			right_wrong4, right_wrong5, result1, result2, result3, result4, result5, score1, score2, score3, score4,
@@ -87,7 +89,7 @@ public class ResultActivity extends Activity implements onMenuOpenedListener {
 		// 重做按钮
 		one_again = (Button) findViewById(R.id.one_again);
 		// 菜单按钮
-		btn_result_menu = (Button) findViewById(R.id.btn_result_menu);
+		btn_result_menu = findViewById(R.id.btn_result_menu);
 	}
 
 	private void Listener() {

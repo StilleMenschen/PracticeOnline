@@ -23,7 +23,9 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 	// 父布局
 	private View parentView;
 	// 提交按钮
-	private Button submit_java, btn_java_menu;
+	private Button submit_java;
+	// 菜单按钮
+	private View btn_java_menu;
 	private onMenuOpenedListener mListener;
 	// 单选按钮组
 	private RadioGroup java_rg1, java_rg2, java_rg3;
@@ -64,7 +66,7 @@ public class JavaTestFragment extends Fragment implements OnClickListener {
 		// 提交按钮
 		submit_java = (Button) parentView.findViewById(R.id.submit_java);
 		// 菜单按钮
-		btn_java_menu = (Button) parentView.findViewById(R.id.btn_java_menu);
+		btn_java_menu = parentView.findViewById(R.id.btn_java_menu);
 	}
 
 	private void listener() {
