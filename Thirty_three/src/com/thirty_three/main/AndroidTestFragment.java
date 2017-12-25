@@ -168,13 +168,13 @@ public class AndroidTestFragment extends Fragment implements OnClickListener {
 				five_topic1 = isChecked ? "A" : "";
 				break;
 			case R.id.androidtest_5_b:
-				five_topic1 = isChecked ? "B" : "";
+				five_topic2 = isChecked ? "B" : "";
 				break;
 			case R.id.androidtest_5_c:
-				five_topic1 = isChecked ? "C" : "";
+				five_topic3 = isChecked ? "C" : "";
 				break;
 			case R.id.androidtest_5_d:
-				five_topic1 = isChecked ? "D" : "";
+				five_topic4 = isChecked ? "D" : "";
 				break;
 			}
 		}
