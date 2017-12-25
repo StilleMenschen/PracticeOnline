@@ -38,7 +38,7 @@
     <string name="topic_num2">"2."</string>
     <string name="topic_num3">"3."</string>
     <string name="topic_num">"题号"</string>
-    <string name="help_content">"    选择你所认为正确答案 （每道题都必须要选）。单选题，每道题目20分，正确给20分，错误给0分。多选题，每道题目20分，正确给20分，有一个答案正确且没有出现正确答案以外的选项，则给10分，否则0分。做完题目按提交按钮提交答案。提交答案后可以按显示以显示正确答案，或者按重做再做一遍。"</string>
+    <string name="help_content">"    选择你所认为正确答案 （每道题都必须要选）。单选题，每道题目20分，正确给20分，错误给0分。多选题，每道题目20分，正确给20分，有一个答案正确且没有出现正确答案以外的选项，则给10分，否则0分。做完题目墙按提交按钮提交答案。提交答案后可以按显示以显示正确答案，或者按重做再做一遍。"</string>
 	<string name="about_content">"移动互联网测试平台"</string>
 	
 	<!-- android -->
@@ -50,7 +50,7 @@
 
 	<string name="android_rb2">"2、在使用 SQLiteOpenHelper这个类时，它的哪一个方法是用来实现版本升级之用的？（）"</string>
 	<string name="android_rb2_a">"A. onCreate();"</string>
-	<string name="android_rb2_b">"B. onCreade();"</string>
+	<string name="android_rb2_b">"B. onConfigure();"</string>
 	<string name="android_rb2_c">"C. onUpdate();"</string>
 	<string name="android_rb2_d">"D. onUpgrade();"</string>
 	
@@ -63,7 +63,7 @@
 	<string name="android_rb4">"1、关于广播的作用，正确的说法是（）"</string>
 	<string name="android_rb4_a">"A. 它是用接收系统发布的一些消息的;"</string>
 	<string name="android_rb4_b">"B. 它可以启动一个 Service;"</string>
-	<string name="android_rb4_c">"C. 它可以启动一个 Service;"</string>
+	<string name="android_rb4_c">"C. 它不能做耗时操作;"</string>
 	<string name="android_rb4_d">"D. 它可以启动一个 Activity;"</string>
 	
 	<string name="android_rb5">"2、Intent 传递数据时，下列的数据类型哪些可以被传递（）"</string>
