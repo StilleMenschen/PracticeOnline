@@ -42,68 +42,68 @@
 	<string name="about_content">"移动互联网测试平台"</string>
 	
 	<!-- android -->
-	<string name="android_rb1">"1、在 Activity中，如何获取 service 对象？（）"</string>
-	<string name="android_rb1_a">"A. 可以通过直接实例化得到;"</string>
-	<string name="android_rb1_b">"B. 通过 startService();"</string>
-	<string name="android_rb1_c">"C. 通过 getService()获取;"</string>
-	<string name="android_rb1_d">"D. 可以通过绑定得;"</string>
+	<string name="android_rb1">"1、通过Intent可以启动那些组件？（）"</string>
+	<string name="android_rb1_a">"A. Activity "</string>
+	<string name="android_rb1_b">"B. Service"</string>
+	<string name="android_rb1_c">"C. 两项都不可以"</string>
+	<string name="android_rb1_d">"D. 两项都可以"</string>
 
-	<string name="android_rb2">"2、在使用 SQLiteOpenHelper这个类时，它的哪一个方法是用来实现版本升级之用的？（）"</string>
-	<string name="android_rb2_a">"A. onCreate();"</string>
-	<string name="android_rb2_b">"B. onConfigure();"</string>
-	<string name="android_rb2_c">"C. onUpdate();"</string>
-	<string name="android_rb2_d">"D. onUpgrade();"</string>
+	<string name="android_rb2">"2、关于广播以下陈述正确的是？（）"</string>
+	<string name="android_rb2_a">"A. 广播接收器只能在配置文件中注册;"</string>
+	<string name="android_rb2_b">"B. 广播接收器注册后不能注销;"</string>
+	<string name="android_rb2_c">"C. 广播接收器只能接收自定义的广播消息;"</string>
+	<string name="android_rb2_d">"D. 广播接收器可以在Activity中单独注册与注销 ;"</string>
 	
-	<string name="android_rb3">"3、在多个应用中读取共享存储数据时， 需要用到哪个对象的 query 方法？（）"</string>
-	<string name="android_rb3_a">"A. ContentResolver;"</string>
-	<string name="android_rb3_b">"B. ContentProvider;"</string>
-	<string name="android_rb3_c">"C. Cursor;"</string>
-	<string name="android_rb3_d">"D. SQLiteHelper;"</string>
+	<string name="android_rb3">"3、当Activity由于资源不足被回收时，哪个函数会被调用？（）"</string>
+	<string name="android_rb3_a">"A. onSaveInstanceState();"</string>
+	<string name="android_rb3_b">"B. onSuspend();"</string>
+	<string name="android_rb3_c">"C. onSaveState();"</string>
+	<string name="android_rb3_d">"D. onStop();"</string>
 	
-	<string name="android_rb4">"1、关于广播的作用，正确的说法是（）"</string>
-	<string name="android_rb4_a">"A. 它是用接收系统发布的一些消息的;"</string>
-	<string name="android_rb4_b">"B. 它可以启动一个 Service;"</string>
-	<string name="android_rb4_c">"C. 它不能做耗时操作;"</string>
-	<string name="android_rb4_d">"D. 它可以启动一个 Activity;"</string>
+	<string name="android_rb4">"1、android 通过 startService 的方式开启服务, 关于 service 生命周期的 onCreate()和 onStart() 说法正确的是？（）"</string>
+	<string name="android_rb4_a">"A. 当第一次启动的时候先后调用 onCreate()和 onStart()方法 ;"</string>
+	<string name="android_rb4_b">"B. 当第一次启动的时候只会调用 onCreate()方法;"</string>
+	<string name="android_rb4_c">"C. 如果 service 已经启动，将先后调用 onCreate()和 onStart()方法;"</string>
+	<string name="android_rb4_d">"D. 如果 service 已经启动，只会执行 onStart()方法，不在执行 onCreate()方法;"</string>
 	
-	<string name="android_rb5">"2、Intent 传递数据时，下列的数据类型哪些可以被传递（）"</string>
-	<string name="android_rb5_a">"A. Serializable;"</string>
-	<string name="android_rb5_b">"B. charsequence;"</string>
-	<string name="android_rb5_c">"C. Parcelable;"</string>
-	<string name="android_rb5_d">"D. Bundle;"</string>
+	<string name="android_rb5">"2、开发android程序需要的开发工具和开发包包括？()"</string>
+	<string name="android_rb5_a">"A. JDK;"</string>
+	<string name="android_rb5_b">"B. Eclipse;"</string>
+	<string name="android_rb5_c">"C. Android SDK;"</string>
+	<string name="android_rb5_d">"D. ADT;"</string>
 
 	
 	<!-- java -->
-	<string name="java_rb1">"1、下列哪种说法是正确的？"</string>
-	<string name="java_rb1_a">"A. 实例方法可直接调用本类的类方法;"</string>
-	<string name="java_rb1_b">"B. 实例方法可直接调用超类的实例方法;"</string>
-	<string name="java_rb1_c">"C. 实例方法可直接调用超类的类方法;"</string>
-	<string name="java_rb1_d">"D. 实例方法可直接调用其他类的实例方法;"</string>
+	<string name="java_rb1">"1、在java中，关于main()方法和类文件的说法错误的是？（）"</string>
+	<string name="java_rb1_a">"A. main()方法是java程序的入口;"</string>
+	<string name="java_rb1_b">"B. 在java中必须用class关键字声明类;"</string>
+	<string name="java_rb1_c">"C. java源文件的扩展名为.java;"</string>
+	<string name="java_rb1_d">"D. 在java类中必须要有main（）方法;"</string>
 
 	
-	<string name="java_rb2">"2、新建一个流对象，下面哪个选项的代码是错误的？"</string>
-	<string name="java_rb2_a">"A. new BufferedWriter(new FileWriter("a.txt"));"</string>
-	<string name="java_rb2_b">"B. new GZIPOutputStream(new FileOutputStream("a.zip"));"</string>
-	<string name="java_rb2_c">"C. new BufferedReader(new FileInputStream("a.dat"));"</string>
-	<string name="java_rb2_d">"D. new ObjectInputStream(new FileInputStream("a.dat"));"</string>
+	<string name="java_rb2">"2、在Java中，以下（）不属于Java基本数据类型。"</string>
+	<string name="java_rb2_a">"A. int;"</string>
+	<string name="java_rb2_b">"B. double;"</string>
+	<string name="java_rb2_c">"C. String;"</string>
+	<string name="java_rb2_d">"D. Boolean;"</string>
 
-	<string name="java_rb3">"3、Java的集合框架中重要的接口java.util.Collection定义了许多方法，选项中哪个方法不是 Collection 接口所定义的？"</string>
-	<string name="java_rb3_a">"A. int size();"</string>
-	<string name="java_rb3_b">"B. compareTo(Object obj)；"</string>
-	<string name="java_rb3_c">"C. boolean containsAll(Collection c);"</string>
-	<string name="java_rb3_d">"D. boolean remove(Object obj);"</string>
+	<string name="java_rb3">"3、以下选项中哪一个不是Java的特点：( )"</string>
+	<string name="java_rb3_a">"A. 自动垃圾回收;"</string>
+	<string name="java_rb3_b">"B. 跨平台；"</string>
+	<string name="java_rb3_c">"C. 面向对象;"</string>
+	<string name="java_rb3_d">"D. 多重继承;"</string>
 	
-	<string name="java_rb4">"1、下列说法错误的有（）"</string>
-	<string name="java_rb4_a">"A. Java面向对象语言容许单独的过程与函数存在;"</string>
-	<string name="java_rb4_b">"B. Java面向对象语言容许单独的方法存在;"</string>
-	<string name="java_rb4_c">"C. Java语言中的方法属于类中的成员（member）;"</string>
-	<string name="java_rb4_d">"D. Java语言中的方法必定隶属于某一类（对象），调用方法与过程或函数相同;"</string>
+	<string name="java_rb4">"1、下列x的定义中，（ ）可以使得上段代码编译通过。"</string>
+	<string name="java_rb4_a">"A. double x = 100;"</string>
+	<string name="java_rb4_b">"B. char x = 100;"</string>
+	<string name="java_rb4_c">"C. String x = "100";"</string>
+	<string name="java_rb4_d">"D. int x = 100;"</string>
 
-	<string name="java_rb5">"2、下面哪个选项演示了继承关系（）"</string>
-	<string name="java_rb5_a">"A. ①、public class Species{ }，②、public class Animal{private Species species;};"</string>
-	<string name="java_rb5_b">"B. ①、class Father { }，②、class son extends Father { };"</string>
-	<string name="java_rb5_c">"C. ①、abstract class Colorable { }，②、class Shape extends Colorable { };"</string>
-	<string name="java_rb5_d">"D. ①、interface Person { }，②、public class Employee implements Person{ };"</string>
+	<string name="java_rb5">"2、在Java中，下面关于包的陈述中正确的是（ ）。"</string>
+	<string name="java_rb5_a">"A.包的声明必须是源文件的第一句代码;"</string>
+	<string name="java_rb5_b">"B.包的声明必须紧跟在import语句的后面;"</string>
+	<string name="java_rb5_c">"C.只有公共类才能放在包中;"</string>
+	<string name="java_rb5_d">"D.可以将多个源文件中的类放在同一个包中;"</string>
 	<string name="experience">"马上体验"</string>
 	<string name="version">"V 1.1.0"</string>
 	<string name="back">"返回"</string>

@@ -22,12 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.thirty_three.main.MainActivity"/>
-        <activity android:name="com.thirty_three.main.LoginActivity"/>
-        <activity android:name="com.thirty_three.main.NavigationActivity"/>
-        <activity android:name="com.thirty_three.main.ResultActivity"/>
-        <activity android:name="com.thirty_three.main.HelpActivity"/>
-        <activity android:name="com.thirty_three.main.AboutActivity"/>
+        <activity android:name="com.thirty_three.main.MainActivity" />
+        <activity android:name="com.thirty_three.main.LoginActivity" />
+        <activity android:name="com.thirty_three.main.NavigationActivity" />
+        <activity android:name="com.thirty_three.main.ResultActivity" />
+        <activity android:name="com.thirty_three.main.HelpActivity" />
+        <activity android:name="com.thirty_three.main.AboutActivity" />
     </application>
 
 </manifest>

@@ -127,10 +127,10 @@ public class ResultActivity extends Activity implements onMenuOpenedListener {
 		// 标题
 		titlt.setText(R.string.android_test_result);
 		// 答案
-		answer1 = "B";
+		answer1 = "D";
 		answer2 = "D";
 		answer3 = "A";
-		answer4 = "BC";
+		answer4 = "AD";
 		answer5 = "ABCD";
 		Judge();
 	}
@@ -142,11 +142,11 @@ public class ResultActivity extends Activity implements onMenuOpenedListener {
 		// 标题
 		titlt.setText(R.string.java_test_result);
 		// 答案
-		answer1 = "A";
+		answer1 = "D";
 		answer2 = "C";
-		answer3 = "B";
-		answer4 = "ABC";
-		answer5 = "BCD";
+		answer3 = "D";
+		answer4 = "CD";
+		answer5 = "AD";
 		Judge();
 	}
 
